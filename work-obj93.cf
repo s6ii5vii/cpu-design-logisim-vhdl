@@ -1,0 +1,7 @@
+v 4
+file . "vhdl/testbench/alu_tb.vhd" "6ed08fce081a70b96fbe1a7797577dcb2c3ae5f7" "20260401175125.613":
+  entity alu_tb at 1( 0) + 0 on 13;
+  architecture behavioral of alu_tb at 8( 107) + 0 on 14;
+file . "vhdl/src/alu.vhd" "9e6d732a9deeddbfa769a9334f7e4a65de84f187" "20260401175125.568":
+  entity alu_vhdl at 1( 0) + 0 on 11;
+  architecture behavioral of alu_vhdl at 15( 399) + 0 on 12;

@@ -1,0 +1,83 @@
+$date
+  Wed Apr 01 17:51:25 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module alu_tb $end
+$var reg 16 ! a[15:0] $end
+$var reg 16 " b[15:0] $end
+$var reg 3 # alu_control[2:0] $end
+$var reg 16 $ alu_result[15:0] $end
+$var reg 1 % zero $end
+$scope module uut $end
+$var reg 16 & a[15:0] $end
+$var reg 16 ' b[15:0] $end
+$var reg 3 ( alu_control[2:0] $end
+$var reg 16 ) alu_result[15:0] $end
+$var reg 1 * zero $end
+$var reg 16 + result[15:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0000000000000101 !
+b0000000000000011 "
+b000 #
+b0000000000001000 $
+0%
+b0000000000000101 &
+b0000000000000011 '
+b000 (
+b0000000000001000 )
+0*
+b0000000000001000 +
+#10000000
+b001 #
+b0000000000000010 $
+b001 (
+b0000000000000010 )
+b0000000000000010 +
+#20000000
+b010 #
+b0000000000000001 $
+b010 (
+b0000000000000001 )
+b0000000000000001 +
+#30000000
+b011 #
+b0000000000000111 $
+b011 (
+b0000000000000111 )
+b0000000000000111 +
+#40000000
+b0000000000000011 !
+b0000000000000101 "
+b100 #
+b0000000000000001 $
+b0000000000000011 &
+b0000000000000101 '
+b100 (
+b0000000000000001 )
+b0000000000000001 +
+#50000000
+b0000000000000100 !
+b0000000000000100 "
+b001 #
+b0000000000000000 $
+1%
+b0000000000000100 &
+b0000000000000100 '
+b001 (
+b0000000000000000 )
+1*
+b0000000000000000 +
