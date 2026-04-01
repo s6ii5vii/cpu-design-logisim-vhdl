@@ -4,16 +4,16 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity ALU_VHDL is
     Port (
-        a           : in  STD_LOGIC_VECTOR(15 downto 0);
-        b           : in  STD_LOGIC_VECTOR(15 downto 0);
+        a           : in  STD_LOGIC_VECTOR(31 downto 0);
+        b           : in  STD_LOGIC_VECTOR(31 downto 0);
         alu_control : in  STD_LOGIC_VECTOR(2 downto 0);
-        alu_result  : out STD_LOGIC_VECTOR(15 downto 0);
+        alu_result  : out STD_LOGIC_VECTOR(31 downto 0);
         zero        : out STD_LOGIC
     );
 end ALU_VHDL;
 
 architecture Behavioral of ALU_VHDL is
-    signal result : STD_LOGIC_VECTOR(15 downto 0);
+    signal result : STD_LOGIC_VECTOR(31 downto 0);
 begin
 
     process(a, b, alu_control)
@@ -33,17 +33,17 @@ begin
 
             when "100" => -- SLT
                 if signed(a) < signed(b) then
-                    result <= x"0001";
+                    result <= x"00000001";
                 else
-                    result <= x"0000";
+                    result <= x"00000000";
                 end if;
 
             when others =>
-                result <= x"0000";
+                result <= x"00000000";
         end case;
     end process;
 
     alu_result <= result;
-    zero <= '1' when result = x"0000" else '0';
+    zero <= '1' when result = x"00000000" else '0';
 
 end Behavioral;

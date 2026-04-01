@@ -1,7 +1,13 @@
 v 4
-file . "vhdl/testbench/alu_tb.vhd" "6ed08fce081a70b96fbe1a7797577dcb2c3ae5f7" "20260401175125.613":
-  entity alu_tb at 1( 0) + 0 on 13;
-  architecture behavioral of alu_tb at 8( 107) + 0 on 14;
-file . "vhdl/src/alu.vhd" "9e6d732a9deeddbfa769a9334f7e4a65de84f187" "20260401175125.568":
-  entity alu_vhdl at 1( 0) + 0 on 11;
-  architecture behavioral of alu_vhdl at 15( 399) + 0 on 12;
+file . "vhdl/testbench/register_file_tb.vhd" "17fe187b4db0bbfca8d2d0f29d69f4daaa6031fa" "20260401180417.896":
+  entity register_file_tb at 1( 0) + 0 on 21;
+  architecture behavioral of register_file_tb at 8( 127) + 0 on 22;
+file . "vhdl/testbench/alu_tb.vhd" "63f9db01a05e29fe8591b60c6fc0ec0abf396f61" "20260401180223.937":
+  entity alu_tb at 1( 0) + 0 on 17;
+  architecture behavioral of alu_tb at 8( 107) + 0 on 18;
+file . "vhdl/src/alu.vhd" "46c989817bfe55f471182bcf56c3a9db27b2db99" "20260401180223.899":
+  entity alu_vhdl at 1( 0) + 0 on 15;
+  architecture behavioral of alu_vhdl at 15( 399) + 0 on 16;
+file . "vhdl/src/register_file.vhd" "c9441b04ec0867565d4c790f3e1cf63e844e8498" "20260401180417.853":
+  entity register_file_vhdl at 1( 0) + 0 on 19;
+  architecture behavioral of register_file_vhdl at 19( 645) + 0 on 20;

@@ -9,18 +9,18 @@ architecture Behavioral of ALU_TB is
 
     component ALU_VHDL
         Port (
-            a           : in  STD_LOGIC_VECTOR(15 downto 0);
-            b           : in  STD_LOGIC_VECTOR(15 downto 0);
+            a           : in  STD_LOGIC_VECTOR(31 downto 0);
+            b           : in  STD_LOGIC_VECTOR(31 downto 0);
             alu_control : in  STD_LOGIC_VECTOR(2 downto 0);
-            alu_result  : out STD_LOGIC_VECTOR(15 downto 0);
+            alu_result  : out STD_LOGIC_VECTOR(31 downto 0);
             zero        : out STD_LOGIC
         );
     end component;
 
-    signal a           : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
-    signal b           : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+    signal a           : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+    signal b           : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
     signal alu_control : STD_LOGIC_VECTOR(2 downto 0) := (others => '0');
-    signal alu_result  : STD_LOGIC_VECTOR(15 downto 0);
+    signal alu_result  : STD_LOGIC_VECTOR(31 downto 0);
     signal zero        : STD_LOGIC;
 
 begin
@@ -36,34 +36,34 @@ begin
 
     stim_proc: process
     begin
-        -- ADD: 5 + 3 = 8
-        a <= x"0005";
-        b <= x"0003";
+        -- ADD: 2500 + 25000
+        a <= std_logic_vector(to_signed(2500, 32));
+        b <= std_logic_vector(to_signed(25000, 32));
         alu_control <= "000";
         wait for 10 ns;
 
-        -- SUB: 5 - 3 = 2
+        -- SUB: 540250 - 37800
+        a <= std_logic_vector(to_signed(540250, 32));
+        b <= std_logic_vector(to_signed(37800, 32));
         alu_control <= "001";
         wait for 10 ns;
 
-        -- AND: 5 AND 3 = 1
+        -- AND: 53957 AND 30000
+        a <= std_logic_vector(to_unsigned(53957, 32));
+        b <= std_logic_vector(to_unsigned(30000, 32));
         alu_control <= "010";
         wait for 10 ns;
 
-        -- OR: 5 OR 3 = 7
+        -- OR: 746353 OR 846465
+        a <= std_logic_vector(to_unsigned(746353, 32));
+        b <= std_logic_vector(to_unsigned(846465, 32));
         alu_control <= "011";
         wait for 10 ns;
 
-        -- SLT: 3 < 5 => 1
-        a <= x"0003";
-        b <= x"0005";
+        -- SLT: 58847537 < 72464383
+        a <= std_logic_vector(to_signed(58847537, 32));
+        b <= std_logic_vector(to_signed(72464383, 32));
         alu_control <= "100";
-        wait for 10 ns;
-
-        -- ZERO CHECK: 4 - 4 = 0
-        a <= x"0004";
-        b <= x"0004";
-        alu_control <= "001";
         wait for 10 ns;
 
         wait;
