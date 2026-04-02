@@ -1,8 +1,9 @@
-# GHDL files
+# GHDL build files
 work-obj93.cf
 *.cf
+.ghdl/
 
-# Build files
+# Compilation / temp files
 *.o
 *.exe
 
