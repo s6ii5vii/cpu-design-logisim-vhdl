@@ -17,13 +17,18 @@ architecture Behavioral of ALU_VHDL is
 begin
 
     process(a, b, alu_control)
+        variable signed_a : signed(31 downto 0);
+        variable signed_b : signed(31 downto 0);
     begin
+        signed_a := signed(a);
+        signed_b := signed(b);
+
         case alu_control is
             when "000" => -- ADD
-                result <= STD_LOGIC_VECTOR(signed(a) + signed(b));
+                result <= STD_LOGIC_VECTOR(signed_a + signed_b);
 
             when "001" => -- SUB
-                result <= STD_LOGIC_VECTOR(signed(a) - signed(b));
+                result <= STD_LOGIC_VECTOR(signed_a - signed_b);
 
             when "010" => -- AND
                 result <= a and b;
@@ -31,15 +36,15 @@ begin
             when "011" => -- OR
                 result <= a or b;
 
-            when "100" => -- SLT
-                if signed(a) < signed(b) then
+            when "100" => -- SET-ON-LESS-THAN (signed)
+                if signed_a < signed_b then
                     result <= x"00000001";
                 else
                     result <= x"00000000";
                 end if;
 
             when others =>
-                result <= x"00000000";
+                result <= STD_LOGIC_VECTOR(signed_a + signed_b);
         end case;
     end process;
 

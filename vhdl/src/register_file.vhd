@@ -18,22 +18,33 @@ end Register_File_VHDL;
 
 architecture Behavioral of Register_File_VHDL is
     type reg_array is array (0 to 7) of STD_LOGIC_VECTOR(31 downto 0);
-    signal regs : reg_array := (others => (others => '0'));
+    signal regs : reg_array := (
+        0 => x"00000001",
+        1 => x"00000002",
+        2 => x"00000003",
+        3 => x"00000004",
+        4 => x"00000005",
+        5 => x"00000006",
+        6 => x"00000007",
+        7 => x"00000008"
+    );
 begin
 
     process(clk, rst)
     begin
         if rst = '1' then
-            regs(0) <= x"00000000";
-            regs(1) <= x"001D86CA"; -- 1934858
-            regs(2) <= x"00000000";
-            regs(3) <= x"0082972F"; -- 8558447
-            regs(4) <= x"00000000";
-            regs(5) <= x"0C26B7A0"; -- 203848544
-            regs(6) <= x"00000000";
-            regs(7) <= x"013B68D4"; -- 20670420
+            regs <= (
+                0 => x"00000001",
+                1 => x"00000002",
+                2 => x"00000003",
+                3 => x"00000004",
+                4 => x"00000005",
+                5 => x"00000006",
+                6 => x"00000007",
+                7 => x"00000008"
+            );
         elsif rising_edge(clk) then
-            if reg_write_en = '1' then
+            if reg_write_en = '1' and reg_write_dest /= "000" then
                 regs(to_integer(unsigned(reg_write_dest))) <= reg_write_data;
             end if;
         end if;

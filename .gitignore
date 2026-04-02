@@ -1,0 +1,11 @@
+# GHDL files
+work-obj93.cf
+*.cf
+
+# Build files
+*.o
+*.exe
+
+# OS junk
+.DS_Store
+Thumbs.db
