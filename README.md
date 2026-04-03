@@ -8,7 +8,7 @@ Design and implementation of a **16-bit CPU in Logisim** and a **32-bit MIPS-sty
 
 This project explores CPU design using two approaches:
 
-* **Logisim** for a visual 16-bit CPU implementation
+* **Logisim-evolution v4.1.0** for a visual 16-bit CPU implementation
 * **VHDL** for a 32-bit MIPS-style processor implementation and simulation
 
 ---
@@ -106,7 +106,7 @@ A full CPU simulation demonstrates:
 
 ## Tools Used
 
-* Logisim
+* Logisim-evolution v4.1.0
 * VHDL
 * GHDL
 * GTKWave
@@ -119,7 +119,7 @@ A full CPU simulation demonstrates:
 
 The full report is available at:
 
-vhdl/report/VHDL-IMPLEMENTATION-AND-SIMULATION.pdf
+vhdl/report/VHDL_CPU_Report.pdf
 
 ---
 
