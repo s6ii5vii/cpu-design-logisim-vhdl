@@ -104,19 +104,19 @@ begin
         rst <= '0';
 
         wait for 1 ns;
-        check_cycle(x"00000000", x"012A4020", x"0000000A", "Cycle 0");
+        check_cycle(x"00000000", x"00650820", x"0000000A", "Cycle 0");
 
         wait until rising_edge(clk);
         wait for 1 ns;
-        check_cycle(x"00000002", x"014B5022", x"FFFFFFFE", "Cycle 1");
+        check_cycle(x"00000002", x"00A72822", x"FFFFFFFE", "Cycle 1");
 
         wait until rising_edge(clk);
         wait for 1 ns;
-        check_cycle(x"00000004", x"01484824", x"0000000A", "Cycle 2");
+        check_cycle(x"00000004", x"00A11824", x"0000000A", "Cycle 2");
 
         wait until rising_edge(clk);
         wait for 1 ns;
-        check_cycle(x"00000006", x"01695025", x"0000000A", "Cycle 3");
+        check_cycle(x"00000006", x"00E32825", x"0000000A", "Cycle 3");
 
         wait until rising_edge(clk);
         wait for 1 ns;

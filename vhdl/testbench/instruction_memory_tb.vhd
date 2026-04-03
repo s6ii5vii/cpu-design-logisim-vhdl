@@ -23,28 +23,28 @@ begin
         -- Instruction 0
         address <= x"00000000";
         wait for 20 ns;
-        assert instruction = x"012A4020"
+        assert instruction = x"00650820"
             report "Instruction 0 mismatch"
             severity error;
 
         -- Instruction 2
         address <= x"00000002";
         wait for 20 ns;
-        assert instruction = x"014B5022"
+        assert instruction = x"00A72822"
             report "Instruction 2 mismatch"
             severity error;
 
         -- Instruction 4
         address <= x"00000004";
         wait for 20 ns;
-        assert instruction = x"01484824"
+        assert instruction = x"00A11824"
             report "Instruction 4 mismatch"
             severity error;
 
         -- Instruction 6
         address <= x"00000006";
         wait for 20 ns;
-        assert instruction = x"01695025"
+        assert instruction = x"00E32825"
             report "Instruction 6 mismatch"
             severity error;
 
