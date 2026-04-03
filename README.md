@@ -1,117 +1,174 @@
 # cpu-design-logisim-vhdl
 
-Design and implementation of a **16-bit CPU in Logisim** and a **32-bit MIPS-style processor in VHDL**, including datapath design, ALU operations, control logic, simulations, and report documentation.
+> 👨🏾‍💻 End-to-end CPU design project demonstrating both **logic-level architecture (Logisim)** and **hardware description modeling (VHDL)** — from datapath construction to full system simulation.
 
 ---
 
-## Overview
+## 🚀 Overview
 
-This project explores CPU design using two approaches:
+This project implements CPU design using **two complementary approaches**:
 
-* **Logisim-evolution v4.1.0** for a visual 16-bit CPU implementation
-* **VHDL** for a 32-bit MIPS-style processor implementation and simulation
+* 🧩 **Logisim Evolution (v4.1.0)** → visual design of a **16-bit CPU**
+* ⚙️ **VHDL (GHDL + GTKWave)** → implementation of a **32-bit MIPS-style processor**
+
+Together, they provide both:
+
+* **Conceptual understanding (Logisim)**
+* **Practical hardware modeling (VHDL)**
 
 ---
 
-## Project Structure
+## 🧠 System Architecture
 
+### 🔹 Logisim CPU (16-bit)
+
+* ALU with multiple operations
+* Register operations (read/write)
+* Datapath wiring and control signals
+* Instruction execution flow
+
+### 🔹 VHDL CPU (32-bit MIPS-style)
+
+* Modular design:
+
+	* ALU
+	* Control Unit
+	* Register File
+	* Instruction Memory
+	* Data Memory
+	* CPU Top Module
+* Supports instruction execution including:
+
+	* Arithmetic operations
+	* Memory access (lw, sw)
+	* Branching (beq)
+	* Jump instructions (j, jal)
+
+---
+
+## 🖼️ Sample Outputs
+
+### 🔹 CPU Waveform (VHDL Simulation)
+
+![CPU Waveform](vhdl/screenshots/cpu_waveform.png)
+
+### 🔹 Control Unit Waveform
+
+![Control Unit](vhdl/screenshots/control_unit_waveform.png)
+
+### 🔹 Logisim Datapath
+
+![Datapath](logisim/screenshots/datapath.png)
+
+---
+
+## 📂 Project Structure
+
+```
 logisim/
-├── project/        # Logisim circuit design files
-├── report-ppt/     # Logisim PDF report + narrated PPT
-└── screenshots/    # Logisim design screenshots
+├── project/            # Logisim circuit files (.circ)
+├── screenshots/        # Circuit design screenshots
+└── report-ppt/         # Logisim report & presentation
 
 vhdl/
-├── report-ppt/     # VHDL PDF report + narrated PPT
-├── screenshots/    # GTKWave waveform screenshots
-├── simulations/    # Simulation output files (.vcd)
-├── src/            # VHDL source files
-└── testbench/      # VHDL testbenches
+├── src/                # VHDL source files
+├── testbench/          # Testbenches
+├── simulations/        # Simulation outputs (.vcd)
+├── screenshots/        # GTKWave waveform screenshots
+└── report-ppt/         # VHDL report & presentation
+```
 
 ---
 
-## Logisim Section
-
-The Logisim portion focuses on a **16-bit CPU design**, including:
-
-* ALU operations
-* Datapath connections
-* Basic instruction execution
-
-This helps visualize how CPU components interact before implementing them in VHDL.
-
----
-
-## VHDL Section
-
-The VHDL implementation models a **32-bit MIPS-style processor** with:
-
-* ALU
-* Data Memory
-* Register File
-* Instruction Memory
-* Control Unit
-* CPU Top Module
-
-Each component was tested using a testbench and waveform simulation.
-
----
-
-## Completed Tasks
-
-### Task 1 — Component Implementation
-
-All CPU components implemented in 32-bit VHDL with testbenches.
-
-### Task 2 — ALU Operations
-
-Addition, subtraction, AND, OR, and comparison verified.
-
-### Task 3 — Register File
-
-Registers written and read successfully.
-
-### Task 4 — Instruction Memory
-
-MIPS instructions encoded and retrieved correctly.
-
-### Task 5 — Control Unit
-
-Correct control signals generated for required instructions.
-
----
-
-## Simulations
+## 🧪 Simulations
 
 Simulations were performed using:
 
-* **GHDL**
-* **GTKWave**
+* **GHDL** → compilation & execution
+* **GTKWave** → waveform visualization
 
-Waveforms are included in:
+### Verified Behavior:
 
-vhdl/screenshots/
-
-Simulation files:
-
-vhdl/simulations/
+* ✅ Program Counter (PC) increments correctly
+* ✅ Instruction flow changes over time
+* ✅ ALU performs correct operations
+* ✅ Registers read/write correctly
+* ✅ Memory operations function properly
+* ✅ Clock drives synchronous execution
 
 ---
 
-## CPU Integration
+## ▶️ How to Run
 
-A full CPU simulation demonstrates:
+### 🔹 VHDL Simulation
 
-* Program Counter increment
+```bash
+# Analyze files
+ghdl -a vhdl/src/*.vhd
+ghdl -a vhdl/testbench/cpu_tb.vhd
+
+# Elaborate testbench
+ghdl -e cpu_tb
+
+# Run simulation
+ghdl -r cpu_tb --vcd=vhdl/simulations/cpu_tb.vcd
+```
+
+### 🔹 View Waveforms
+
+```bash
+gtkwave vhdl/simulations/cpu_tb.vcd
+```
+
+---
+
+### 🔹 Logisim
+
+1. Open `.circ` files in **Logisim Evolution**
+2. Use the **clock tool** to simulate execution
+3. Observe datapath and control signals
+
+---
+
+## ✅ Completed Tasks
+
+### 🔹 Task 1 — Component Implementation
+
+All CPU components implemented in VHDL with testbenches.
+
+### 🔹 Task 2 — ALU Operations
+
+Addition, subtraction, AND, OR, and comparison verified.
+
+### 🔹 Task 3 — Register File
+
+Registers successfully read and written.
+
+### 🔹 Task 4 — Instruction Memory
+
+MIPS instructions encoded and retrieved correctly.
+
+### 🔹 Task 5 — Control Unit
+
+Correct control signals generated for supported instructions.
+
+---
+
+## 🔗 CPU Integration
+
+The full CPU simulation demonstrates:
+
+* Program counter progression
 * Instruction execution flow
-* ALU operations
-* Register read/write
-* Clock-driven behavior
+* ALU computation pipeline
+* Register file interaction
+* Clock-driven synchronous behavior
 
 ---
 
-## Tools Used
+## 🛠️ Tools Used
 
-* Logisim-evolution v4.1.0
+* Logisim Evolution v4.1.0
 * VHDL
 * GHDL
 * GTKWave
@@ -120,28 +177,44 @@ A full CPU simulation demonstrates:
 
 ---
 
-## Report
+## 📄 Reports
 
-Final reports are available at:
+### 📘 Logisim
 
-logisim/report-ppt/Logisim_16bit_CPU_Report.pdf
+* `logisim/report-ppt/Logisim_16bit_CPU_Report.pdf`
 
-vhdl/report-ppt/VHDL_CPU_REPORT.pdf
+### 📘 VHDL
 
-Narrated presentation files (with embedded slide audio) are available at:
+* `vhdl/report-ppt/VHDL_CPU_REPORT.pdf`
 
-logisim/report-ppt/16-Bit_CPU_Architecture0.pptx
+### 🎤 Presentations (Narrated)
 
-vhdl/report-ppt/32-bit_MIPS_VHDL_Design1.pptx
+* `logisim/report-ppt/16-Bit_CPU_Architecture0.pptx`
+* `vhdl/report-ppt/32-bit_MIPS_VHDL_Design1.pptx`
 
 ---
 
-## Learning Outcomes
+## 🎯 Learning Outcomes
 
 * CPU datapath design
 * Hardware modeling in VHDL
-* Testbench creation
-* Waveform debugging
+* Testbench development
+* Simulation and waveform debugging
+* Understanding instruction execution at hardware level
+
+---
+
+## 💡 Key Insight
+
+> Building the CPU in Logisim first provided an intuitive understanding of hardware interactions, while VHDL implementation reinforced precise control over timing, signals, and execution behavior.
+
+---
+
+## 👨‍💻 Author
+
+**tetteh-etornam-emmanuel**
+Computer Engineering Student
+Interested in Systems, AI/ML, and Computer Architecture
 
 ---
 
