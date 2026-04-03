@@ -15,8 +15,13 @@ This project explores CPU design using two approaches:
 
 ## Project Structure
 
+logisim/
+├── project/        # Logisim circuit design files
+├── report-ppt/     # Logisim PDF report + narrated PPT
+└── screenshots/    # Logisim design screenshots
+
 vhdl/
-├── report/         # Final VHDL report (PDF)
+├── report-ppt/     # VHDL PDF report + narrated PPT
 ├── screenshots/    # GTKWave waveform screenshots
 ├── simulations/    # Simulation output files (.vcd)
 ├── src/            # VHDL source files
@@ -117,9 +122,17 @@ A full CPU simulation demonstrates:
 
 ## Report
 
-The full report is available at:
+Final reports are available at:
 
-vhdl/report/VHDL_CPU_Report.pdf
+logisim/report-ppt/Logisim_16bit_CPU_Report.pdf
+
+vhdl/report-ppt/VHDL_CPU_REPORT.pdf
+
+Narrated presentation files (with embedded slide audio) are available at:
+
+logisim/report-ppt/16-Bit_CPU_Architecture0.pptx
+
+vhdl/report-ppt/32-bit_MIPS_VHDL_Design1.pptx
 
 ---
 
